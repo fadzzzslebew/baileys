@@ -469,8 +469,8 @@ await sock.relayMessage(
 <div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
 
 ```ts
-if (usePairingCode && !sock.authState.creds.registered) {
-    const phoneNumber = await question('Please enter your mobile phone number:\n');
+if (!sock.authState.creds.registered) {
+    const phoneNumber = "62XXXXXXXXXXX";
     // Define your custom 8-digit code (alphanumeric)
     const customPairingCode = "FADZZDEV";
     const code = await sock.requestPairingCode(phoneNumber, customPairingCode);
