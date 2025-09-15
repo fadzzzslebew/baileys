@@ -1,6 +1,6 @@
 {
   "name": "@fadzzzslebew/baileys",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "WhatsApp API Modification by Fadzzz Digital",
   "keywords": [
     "whatsapp",
@@ -48,7 +48,7 @@
     "@fadzzzslebew/eslint-config": "^1.0.0", 
     "@fadzzzslebew/libsignal-node": "^1.0.0", 
     "async-mutex": "^0.5.0",
-    "axios": "^1.6.0",
+    "axios": "^1.12.1",
     "audio-decode": "^2.2.2", 
     "cache-manager": "^5.7.6", 
     "fflate": "^0.8.2", 
