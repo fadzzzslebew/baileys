@@ -46,9 +46,16 @@ Install in package.json:
     "@fadzzzslebew/baileys": "latest"
 }
 ```
+
 or install in terminal:
+
+Use the stable version:
 ```
 npm install @fadzzzslebew/baileys
+```
+Use the edge version (no guarantee of stability, but latest fixes + features)
+```
+yarn add github:fadzzzslebew/baileys
 ```
 
 Then import the default function in your code:
