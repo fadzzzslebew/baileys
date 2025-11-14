@@ -43,7 +43,8 @@
 
 <br>
 
-## 🔥 Updated New (3 October 2025)
+## 🔥 Updated New (19 October 2025)
+- 💾 New Auth Metode, Clasic Level DB
 - ✨ AI Logo Message
 - 🚀 Logger Buffer Clear
 - 🗄️ makeInMemoryStore Fixed
@@ -116,6 +117,48 @@ const {
 
 sock.ev.on('messages.upsert', ({ messages }) => {
   console.log('New message:', messages[0].message);
+});
+```
+
+<br>
+
+## 🚀 Quick Start ( With Classic Level DB Auth )
+```javascript
+const { default: makeWASocket, useClassicLevelAuthState } = require('@fadzzzslebew/baileys');
+
+const { ClassicLevel } = require("classic-level");
+
+const sessionDB = new ClassicLevel('you-session-name', {
+	valueEncoding: "utf8"
+});
+
+await sessionDB.open();
+
+const { state, saveCreds } = await useClassicLevelAuthState(sessionDB)
+
+/*
+ * const sock = makeWASocket({ printQRInTerminal: true });
+ * code to get WhatsApp web connection
+ * QR code or pairing code type available
+ */
+
+sock.ev.on('messages.upsert', ({ messages }) => {
+  console.log('New message:', messages[0].message);
+});
+
+// Event for Classic Level DB
+
+sessionDB.on("open", () => console.log("Database Sessions opened"));
+sessionDB.on("closed", () => console.log("Database Sessions closed"));
+
+sessionDB.on("write", (ops) => {
+    for (const op of ops) {
+        if (op.type === "put") {
+            console.log("Data disimpan :", op.key);
+        } else if (op.type === "del") {
+            console.log("Data dihapus :", op.key);
+        }
+    }
 });
 ```
 
